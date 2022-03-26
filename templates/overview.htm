@@ -77,7 +77,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <div class="w3-container w3-white w3-hover-shadow w3-border-red w3-bottombar w3-padding-16">
         <div class="w3-left"><img src="/static/images/temperature.svg"></div>
         <div class="w3-right">
-          <h3  id = "card-temp">{{ temperature }}</h3>
+          <h3  id = "card-temp">{{ temperature.temperature }}°C</h3>
         </div>
         <div class="w3-clear"></div>
         <h4>Temperature</h4>
@@ -87,7 +87,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <div class="w3-container w3-white w3-hover-shadow w3-border-blue w3-bottombar w3-padding-16">
         <div class="w3-left"><img src="/static/images/grass.svg"></div>
         <div class="w3-right">
-          <h3 id = "card-moisture">99</h3>
+          <h3 id = "card-moisture">{{ moisture.moisture }}%</h3>
         </div>
         <div class="w3-clear"></div>
         <h4>Moisture</h4>
@@ -97,7 +97,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <div class="w3-container w3-white w3-hover-shadow w3-border-teal w3-bottombar w3-padding-16">
         <div class="w3-left"><img src="/static/images/humidity.svg"></div>
         <div class="w3-right">
-          <h3 id ="card-humidity">23</h3>
+          <h3 id ="card-humidity">{{ humidity.humidity }}%</h3>
         </div>
         <div class="w3-clear"></div>
         <h4>Humidity</h4>
@@ -107,7 +107,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <div class="w3-container w3-white w3-hover-shadow w3-border-orange w3-bottombar w3-padding-16">
         <div class="w3-left"><img src="/static/images/ecology.svg"></div>
         <div class="w3-right">
-          <h3 id = "card-light">50</h3>
+          <h3 id = "card-light">{{ light.light }}nm</h3>
         </div>
         <div class="w3-clear"></div>
         <h4>Light Intensity</h4>
@@ -120,7 +120,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <h3>
       Temperature
     </h3> 
-    <canvas id="temperature" ></canvas>
+    <canvas id="temperature" >{{ {"labels":["21-Nov-2017, 08-Dec-2017, 09-Dec-2017"],"data":["14869.8, 16762.11, 17276.39"]} }}</canvas>
     </div>
 
     
@@ -147,23 +147,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 </div>
   
-
-  <div class="w3-panel w3-padding-16">
-    <div class="w3-row-padding w3-white w3-border-green w3-margin-left w3-leftbar" style="margin:0 -16px">
-      <div class="w3-third w3-padding-16">
-        <h5>Field Description</h5>
-        <img src="/static/images/trees.svg" style="width:100%" alt="">
-      </div>
-      <div class="w3-twothird">
-        <h5>SunFlower Garden</h5>
-        
-        <p>
-          Something is going to be in here
-        </p>
-
-      </div>
-    </div>
-  </div>
   <br>
   <div class="w3-container w3-dark-grey w3-padding-32">
     <div class="w3-row">

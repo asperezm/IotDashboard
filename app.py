@@ -48,8 +48,17 @@ def overview(username, session):
             "deviceID": "Device1"
             }
         ]
-        return render_template('overview.htm', title='Overview', user=user, devices=devices, temperature=get_temperature())
-    
+        return render_template (
+            'overview.htm', 
+            title='Overview', 
+            user=user, 
+            devices=devices, 
+            temperature=get_temperature(),
+            moisture=get_moisture(),
+            humidity=get_humidity(),
+            light=get_light(),
+        )
+
     else:
         return redirect('/login')
         
@@ -104,6 +113,12 @@ def get_light():
     response['time'] = time
     response['light'] = randData
     return response
+
+def generate_random_values(min, max):
+    values = []
+    for i in range(0,10):
+        values.append(random.randint(min, max))
+    return values
 
 
 if __name__ == "__main__":

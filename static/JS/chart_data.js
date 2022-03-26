@@ -35,10 +35,10 @@ function getdevice(){
 var temp_chart = new Chart(temperature, {
     type: 'line',
     data: {
-        labels: [],
+        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
         datasets: [{
             label: 'Temperature W.R.T. Time',
-            data: [],
+            data: genRandomData(15, 55),
             fill:true,
             backgroundColor: 'rgba(244, 67, 54, 0.1)',
             borderColor:'rgba(244, 67, 54, 1)',
@@ -61,10 +61,10 @@ var humidity = document.getElementById('humidity');
 var humid_chart = new Chart(humidity, {
     type: 'line',
     data: {
-        labels: [],
+        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
         datasets: [{
             label: 'Humidity W.R.T. Time',
-            data: [],
+            data: genRandomData(0, 100),
             fill:true,
             backgroundColor: 'rgba(33, 150, 243, 0.1)',
             borderColor:'rgba(33, 150, 243, 1)',
@@ -86,10 +86,10 @@ var moisture = document.getElementById('moisture');
 var moist_chart = new Chart(moisture, {
     type: 'line',
     data: {
-        labels: [],
+        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
         datasets: [{
             label: 'Moisture W.R.T. Time',
-            data: [],
+            data: genRandomData(0, 100),
             fill:true,
             backgroundColor: 'rgba(0, 150, 136, 0.1)',
             borderColor:'rgba(0, 150, 136, 1)',
@@ -112,10 +112,10 @@ var light = document.getElementById('light');
 var light_chart = new Chart(light, {
     type: 'line',
     data: {
-        labels: [],
+        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
         datasets: [{
             label: 'Light W.R.T. Time',
-            data: [],
+            data: genRandomData(300, 1000),
             fill:true,
             backgroundColor: 'rgba(255, 152, 0, 0.1)',
             borderColor:'rgba(255, 152, 0, 1)',
@@ -148,6 +148,14 @@ function removeData(chart) {
         dataset.data.shift();
     });
     chart.update();
+}
+
+function genRandomData(min, max) {
+    var values = [];
+    for(var i = 0; i < 10; i++) {
+        values.push(Math.floor(Math.random() * (max - min + 1)) + min);
+    }
+    return values;
 }
 
 var couter = 0; 
