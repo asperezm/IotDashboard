@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- <meta http-equiv="refresh" content="5" > -->
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="http://code.j  .com/j  -1.7.1.min.js"></script>
   
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -57,9 +57,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     {% endfor %}
 
     <!-- <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Field device Controls</a> -->
-    <a href="/apisettings/{{ user.username }}/{{ user.session }}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  API settings</a>
-    <!-- <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Device Manager</a> -->
-    <a href="/profile/{{ user.username }}/{{ user.session }}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Profile Settings</a><br><br>
   </div>
 </nav>
 
@@ -80,7 +77,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <div class="w3-container w3-white w3-hover-shadow w3-border-red w3-bottombar w3-padding-16">
         <div class="w3-left"><img src="/static/images/temperature.svg"></div>
         <div class="w3-right">
-          <h3  id = "card-temp">52</h3>
+          <h3  id = "card-temp">{{ temperature }}</h3>
         </div>
         <div class="w3-clear"></div>
         <h4>Temperature</h4>

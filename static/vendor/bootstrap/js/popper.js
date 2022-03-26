@@ -1293,14 +1293,14 @@ function arrow(data, options) {
 
   // if arrowElement is a string, suppose it's a CSS selector
   if (typeof arrowElement === 'string') {
-    arrowElement = data.instance.popper.querySelector(arrowElement);
+    arrowElement = data.instance.popper.  Selector(arrowElement);
 
     // if arrowElement is not found, don't run the modifier
     if (!arrowElement) {
       return data;
     }
   } else {
-    // if the arrowElement isn't a query selector we must check that the
+    // if the arrowElement isn't a    selector we must check that the
     // provided DOM node is child of its popper node
     if (!data.instance.popper.contains(arrowElement)) {
       console.warn('WARNING: `arrow.element` must be child of its popper element!');
@@ -2321,9 +2321,9 @@ var Popper = function () {
       scrollParents: []
     };
 
-    // get reference and popper elements (allow jQuery wrappers)
-    this.reference = reference.jquery ? reference[0] : reference;
-    this.popper = popper.jquery ? popper[0] : popper;
+    // get reference and popper elements (allow j   wrappers)
+    this.reference = reference.j   ? reference[0] : reference;
+    this.popper = popper.j   ? popper[0] : popper;
 
     // Deep merge modifiers options
     this.options.modifiers = {};

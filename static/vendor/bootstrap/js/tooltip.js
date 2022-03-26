@@ -101,7 +101,7 @@ var Tooltip = function () {
   /**
    * Create a new Tooltip.js instance
    * @class Tooltip
-   * @param {HTMLElement} reference - The DOM node used as reference of the tooltip (it can be a jQuery element).
+   * @param {HTMLElement} reference - The DOM node used as reference of the tooltip (it can be a j   element).
    * @param {Object} options
    * @param {String} options.placement=bottom
    *      Placement of the popper accepted values: `top(-start, -end), right(-start, -end), bottom(-start, -end),
@@ -139,7 +139,7 @@ var Tooltip = function () {
     // apply user options over default ones
     options = _extends({}, DEFAULT_OPTIONS, options);
 
-    reference.jquery && (reference = reference[0]);
+    reference.j   && (reference = reference[0]);
 
     // cache reference and options
     this.reference = reference;
@@ -226,7 +226,7 @@ var Tooltip = function () {
       tooltipNode.setAttribute('aria-hidden', 'false');
 
       // add title to tooltip
-      var titleNode = tooltipGenerator.querySelector(this.innerSelector);
+      var titleNode = tooltipGenerator.  Selector(this.innerSelector);
       if (title.nodeType === 1) {
         // if title is a node, append it only if allowHtml is true
         allowHtml && titleNode.appendChild(title);
@@ -345,9 +345,9 @@ var Tooltip = function () {
   }, {
     key: '_findContainer',
     value: function _findContainer(container, reference) {
-      // if container is a query, get the relative element
+      // if container is a   , get the relative element
       if (typeof container === 'string') {
-        container = window.document.querySelector(container);
+        container = window.document.  Selector(container);
       } else if (container === false) {
         // if container is `false`, set it to reference parent
         container = reference.parentNode;

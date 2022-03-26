@@ -1,15 +1,14 @@
 from flask import Flask, render_template, jsonify, redirect, request
-import json, database, base64
+import json, base64
+import person
 from random import choice
 from datetime import datetime
-import person
 import os, binascii
 
 app = Flask(__name__)
 
 logged_in = {}
 api_loggers = {}
-mydb = database.db('aman', '127.0.0.1', 'hacker123', 'ARMS')
 
 #test api key aGFja2luZ2lzYWNyaW1lYXNmc2FmZnNhZnNhZmZzYQ==
 
@@ -20,7 +19,7 @@ def login():
     if request.method == 'POST':
         user = person.user(request.form['username'], request.form['password'])
         if user.authenticated:
-            user.session_id = str(binascii.b2a_hex(os.urandom(15)))
+            user.session_id = "str(binascii.b2a_hex(os.urandom(15)))"
             logged_in[user.username] = {"object": user}
             return redirect('/overview/{}/{}'.format(request.form['username'], user.session_id))
         else:
@@ -32,7 +31,7 @@ def login():
 @app.route('/device1/<string:username>/<string:session>', methods=["GET", "POST"])
 def Dashoboard():
     user = {
-        "username" : "Aman Singh",
+        "username" : "Admin Iot",
         "image":"static/images/amanSingh.jpg"
     }
 
@@ -58,7 +57,7 @@ def overview(username, session):
         user = {
             "username" : username,
             "image":"/static/images/amanSingh.jpg",
-            "api": logged_in[username]["object"].api,
+            "api": "logged_in[username].api",
             "session" : session
         }
 
@@ -67,7 +66,7 @@ def overview(username, session):
             "deviceID": "Device1"
             }
         ]
-        return render_template('overview.htm', title='Overview', user=user, devices=devices)
+        return render_template('overview.htm', title='Overview', user=user, devices=devices, temperature=get_temperature())
     
     else:
         return redirect('/login')
@@ -82,7 +81,7 @@ def apisettings(username, session):
         user = {
             "username" : username,
             "image":"/static/images/amanSingh.jpg",
-            "api": logged_in[username]["object"].api,
+            "api": "logged_in[username]api",
             "session" : session
         }
 
@@ -107,7 +106,7 @@ def profile(username, session):
         user = {
             "username" : username,
             "image":"/static/images/amanSingh.jpg",
-            "api": logged_in[username]["object"].api,
+            "api": "logged_in[username]api",
             "session" : session,
             "firstname": logged_in[username]["object"].first,
             "lastname": logged_in[username]["object"].last,
@@ -151,12 +150,9 @@ def apitest (apikey):
 @app.route("/api/<string:apikey>/listdevices", methods=['GET', 'POST'])
 def listdevices(apikey):
     global api_loggers
-    global mydb
     if not(apikey in api_loggers):
         try:
-            query = "select username from users where api_key = '{}'".format(apikey)
-            mydb.cursor.execute(query)
-            username = mydb.cursor.fetchall()
+            username = "hola"
             username = username[0][0]
             apiuser = person.user(username, "dummy")
             apiuser.authenticated = True
@@ -176,12 +172,9 @@ randlist = [i for i in range(0, 100)]
 @app.route('/api/<string:apikey>/deviceinfo/<string:deviceID>', methods=['GET', 'POST'])
 def device_info (apikey, deviceID):
     global api_loggers
-    global mydb
     if not(apikey in api_loggers):
         try:
-            query = "select username from users where api_key = '{}'".format(apikey)
-            mydb.cursor.execute(query)
-            username = mydb.cursor.fetchall()
+            username = "hola"
             username = username[0][0]
             apiuser = person.user(username, "dummy")
             apiuser.authenticated = True
@@ -207,17 +200,10 @@ def device_info (apikey, deviceID):
 def fieldstat (apikey, fieldname):
     
     global api_loggers
-    global mydb
     if not(apikey in api_loggers):
         try:
-            query = "select username from users where api_key = '{}'".format(apikey)
-            mydb.cursor.execute(query)
-            username = mydb.cursor.fetchall()
-            username = username[0][0]
-            apiuser = person.user(username, "dummy")
-            apiuser.authenticated = True
+            username = "hola"
             data = apiuser.field_values(fieldname)
-            api_loggers[apikey] = {"object" : apiuser}
             return jsonify(data)
         except Exception as e:
             print (e)
@@ -232,18 +218,9 @@ def fieldstat (apikey, fieldname):
 def devicestat (apikey, fieldname, deviceID):
     
     global api_loggers
-    global mydb
     if not(apikey in api_loggers):
         try:
-            query = "select username from users where api_key = '{}'".format(apikey)
-            mydb.cursor.execute(query)
-            username = mydb.cursor.fetchall()
-            username = username[0][0]
-            apiuser = person.user(username, "dummy")
-            apiuser.authenticated = True
-            data = apiuser.device_values(fieldname, deviceID)
-            api_loggers[apikey] = {"object" : apiuser}
-            return jsonify(data)
+            return jsonify("hola")
         except Exception as e:
             print (e)
             return jsonify({"data":"Oops Looks like api is not correct"})
@@ -254,19 +231,15 @@ def devicestat (apikey, fieldname, deviceID):
 
 @app.route('/api/<string:apikey>/update/<string:data>', methods=['GET','POST'])
 def update_values(apikey, data):
-    global mydb
     try:
-        data = decode(data)
-        output = mydb.get_apikeys()
         if apikey in output:
             if (len(data) == 6) and (type(data) is list):
-                fieldname = data[0]
-                deviceID = data[1]
-                temp = data[2]
-                humidity = data[3]
-                moisture = data[4]
-                light = data[5]
-                mydb.update_values(apikey, fieldname, deviceID, temp, humidity, moisture, light)
+                fieldname = "data[0]"
+                deviceID = "data[1]"
+                temp = "data[2]"
+                humidity = "data[3]"
+                moisture = "data[4]"
+                light = "data[5]"
                 return ("Values Updated")
             else:
                 return "Data Decoding Error!"
@@ -279,13 +252,9 @@ def update_values(apikey, data):
 
 
 @app.route("/api/<string:apikey>/temperature", methods=["GET", "POST"])
-def get_temperature(apikey):
+def get_temperature():
     
-    randData = choice(randlist)
-    time = datetime.now()
-    time = time.strftime("%H:%M:%S")
-    response = [time, randData]
-    return jsonify(response)
+    return "38729"
 
 @app.route("/api/<string:apikey>/moisture", methods=["GET", "POST"])
 def get_moisture(apikey):

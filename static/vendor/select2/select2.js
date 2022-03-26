@@ -8,38 +8,38 @@
 (function (factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['jquery'], factory);
+    define(['j  '], factory);
   } else if (typeof module === 'object' && module.exports) {
     // Node/CommonJS
-    module.exports = function (root, jQuery) {
-      if (jQuery === undefined) {
-        // require('jQuery') returns a factory that requires window to
-        // build a jQuery instance, we normalize how we use modules
+    module.exports = function (root, j  ) {
+      if (j   === undefined) {
+        // require('j  ') returns a factory that requires window to
+        // build a j   instance, we normalize how we use modules
         // that require this pattern but the window provided is a noop
-        // if it's defined (how jquery works)
+        // if it's defined (how j   works)
         if (typeof window !== 'undefined') {
-          jQuery = require('jquery');
+          j   = require('j  ');
         }
         else {
-          jQuery = require('jquery')(root);
+          j   = require('j  ')(root);
         }
       }
-      factory(jQuery);
-      return jQuery;
+      factory(j  );
+      return j  ;
     };
   } else {
     // Browser globals
-    factory(jQuery);
+    factory(j  );
   }
-} (function (jQuery) {
+} (function (j  ) {
   // This is needed so we can catch the AMD loader configuration and use it
   // The inner file should be wrapped (by `banner.start.js`) in a function that
   // returns the AMD loader references.
   var S2 =(function () {
   // Restore the Select2 AMD loader so it can be used
   // Needed mostly in the language files, where the loader is not inserted
-  if (jQuery && jQuery.fn && jQuery.fn.select2 && jQuery.fn.select2.amd) {
-    var S2 = jQuery.fn.select2.amd;
+  if (j   && j  .fn && j  .fn.select2 && j  .fn.select2.amd) {
+    var S2 = j  .fn.select2.amd;
   }
 var S2;(function () { if (!S2 || !S2.requirejs) {
 if (!S2) { S2 = {}; } else { require = S2; }
@@ -470,7 +470,7 @@ var requirejs, require, define;
     };
 
     define.amd = {
-        jQuery: true
+        j  : true
     };
 }());
 
@@ -479,14 +479,14 @@ S2.requirejs = requirejs;S2.require = require;S2.define = define;
 }());
 S2.define("almond", function(){});
 
-/* global jQuery:false, $:false */
-S2.define('jquery',[],function () {
-  var _$ = jQuery || $;
+/* global j  :false, $:false */
+S2.define('j  ',[],function () {
+  var _$ = j   || $;
 
   if (_$ == null && console && console.error) {
     console.error(
-      'Select2: An instance of jQuery or a jQuery-compatible library was not ' +
-      'found. Make sure that you are including jQuery before Select2 on your ' +
+      'Select2: An instance of j   or a j  -compatible library was not ' +
+      'found. Make sure that you are including j   before Select2 on your ' +
       'web page.'
     );
   }
@@ -495,7 +495,7 @@ S2.define('jquery',[],function () {
 });
 
 S2.define('select2/utils',[
-  'jquery'
+  'j  '
 ], function ($) {
   var Utils = {};
 
@@ -751,11 +751,11 @@ S2.define('select2/utils',[
     });
   };
 
-  // Append an array of jQuery nodes to a given element.
+  // Append an array of j   nodes to a given element.
   Utils.appendMany = function ($element, $nodes) {
-    // jQuery 1.7.x does not support $.fn.append() with an array
-    // Fall back to a jQuery object collection using $.fn.add()
-    if ($.fn.jquery.substr(0, 3) === '1.7') {
+    // j   1.7.x does not support $.fn.append() with an array
+    // Fall back to a j   object collection using $.fn.add()
+    if ($.fn.j  .substr(0, 3) === '1.7') {
       var $jqNodes = $();
 
       $.map($nodes, function (node) {
@@ -772,7 +772,7 @@ S2.define('select2/utils',[
 });
 
 S2.define('select2/results',[
-  'jquery',
+  'j  ',
   './utils'
 ], function ($, Utils) {
   function Results ($element, options, dataAdapter) {
@@ -1038,7 +1038,7 @@ S2.define('select2/results',[
       }
     });
 
-    container.on('query', function (params) {
+    container.on('  ', function (params) {
       self.hideMessages();
       self.showLoading(params);
     });
@@ -1322,7 +1322,7 @@ S2.define('select2/keys',[
 });
 
 S2.define('select2/selection/base',[
-  'jquery',
+  'j  ',
   '../utils',
   '../keys'
 ], function ($, Utils, KEYS) {
@@ -1481,7 +1481,7 @@ S2.define('select2/selection/base',[
 });
 
 S2.define('select2/selection/single',[
-  'jquery',
+  'j  ',
   './base',
   '../utils',
   '../keys'
@@ -1581,7 +1581,7 @@ S2.define('select2/selection/single',[
 });
 
 S2.define('select2/selection/multiple',[
-  'jquery',
+  'j  ',
   './base',
   '../utils'
 ], function ($, BaseSelection, Utils) {
@@ -1741,7 +1741,7 @@ S2.define('select2/selection/placeholder',[
 });
 
 S2.define('select2/selection/allowClear',[
-  'jquery',
+  'j  ',
   '../keys'
 ], function ($, KEYS) {
   function AllowClear () { }
@@ -1839,7 +1839,7 @@ S2.define('select2/selection/allowClear',[
 });
 
 S2.define('select2/selection/search',[
-  'jquery',
+  'j  ',
   '../utils',
   '../keys'
 ], function ($, Utils, KEYS) {
@@ -2025,7 +2025,7 @@ S2.define('select2/selection/search',[
     if (!this._keyUpPrevented) {
       var input = this.$search.val();
 
-      this.trigger('query', {
+      this.trigger('  ', {
         term: input
       });
     }
@@ -2062,7 +2062,7 @@ S2.define('select2/selection/search',[
 });
 
 S2.define('select2/selection/eventRelay',[
-  'jquery'
+  'j  '
 ], function ($) {
   function EventRelay () { }
 
@@ -2088,7 +2088,7 @@ S2.define('select2/selection/eventRelay',[
       // The parameters should always be an object
       params = params || {};
 
-      // Generate the jQuery event for the Select2 event
+      // Generate the j   event for the Select2 event
       var evt = $.Event('select2:' + name, {
         params: params
       });
@@ -2108,7 +2108,7 @@ S2.define('select2/selection/eventRelay',[
 });
 
 S2.define('select2/translation',[
-  'jquery',
+  'j  ',
   'require'
 ], function ($, require) {
   function Translation (dict) {
@@ -3004,8 +3004,8 @@ S2.define('select2/data/base',[
     throw new Error('The `current` method must be defined in child classes.');
   };
 
-  BaseAdapter.prototype.query = function (params, callback) {
-    throw new Error('The `query` method must be defined in child classes.');
+  BaseAdapter.prototype.   = function (params, callback) {
+    throw new Error('The `  ` method must be defined in child classes.');
   };
 
   BaseAdapter.prototype.bind = function (container, $container) {
@@ -3035,7 +3035,7 @@ S2.define('select2/data/base',[
 S2.define('select2/data/select',[
   './base',
   '../utils',
-  'jquery'
+  'j  '
 ], function (BaseAdapter, Utils, $) {
   function SelectAdapter ($element, options) {
     this.$element = $element;
@@ -3157,7 +3157,7 @@ S2.define('select2/data/select',[
     });
   };
 
-  SelectAdapter.prototype.query = function (params, callback) {
+  SelectAdapter.prototype.   = function (params, callback) {
     var data = [];
     var self = this;
 
@@ -3321,7 +3321,7 @@ S2.define('select2/data/select',[
 S2.define('select2/data/array',[
   './select',
   '../utils',
-  'jquery'
+  'j  '
 ], function (SelectAdapter, Utils, $) {
   function ArrayAdapter ($element, options) {
     var data = options.get('data') || [];
@@ -3401,7 +3401,7 @@ S2.define('select2/data/array',[
 S2.define('select2/data/ajax',[
   './array',
   '../utils',
-  'jquery'
+  'j  '
 ], function (ArrayAdapter, Utils, $) {
   function AjaxAdapter ($element, options) {
     this.ajaxOptions = this._applyDefaults(options.get('ajax'));
@@ -3439,7 +3439,7 @@ S2.define('select2/data/ajax',[
     return results;
   };
 
-  AjaxAdapter.prototype.query = function (params, callback) {
+  AjaxAdapter.prototype.   = function (params, callback) {
     var matches = [];
     var self = this;
 
@@ -3495,11 +3495,11 @@ S2.define('select2/data/ajax',[
     }
 
     if (this.ajaxOptions.delay && params.term != null) {
-      if (this._queryTimeout) {
-        window.clearTimeout(this._queryTimeout);
+      if (this._  Timeout) {
+        window.clearTimeout(this._  Timeout);
       }
 
-      this._queryTimeout = window.setTimeout(request, this.ajaxOptions.delay);
+      this._  Timeout = window.setTimeout(request, this.ajaxOptions.delay);
     } else {
       request();
     }
@@ -3509,7 +3509,7 @@ S2.define('select2/data/ajax',[
 });
 
 S2.define('select2/data/tags',[
-  'jquery'
+  'j  '
 ], function ($) {
   function Tags (decorated, $element, options) {
     var tags = options.get('tags');
@@ -3540,7 +3540,7 @@ S2.define('select2/data/tags',[
     }
   }
 
-  Tags.prototype.query = function (decorated, params, callback) {
+  Tags.prototype.   = function (decorated, params, callback) {
     var self = this;
 
     this._removeOldTags();
@@ -3638,7 +3638,7 @@ S2.define('select2/data/tags',[
 });
 
 S2.define('select2/data/tokenizer',[
-  'jquery'
+  'j  '
 ], function ($) {
   function Tokenizer (decorated, $element, options) {
     var tokenizer = options.get('tokenizer');
@@ -3657,7 +3657,7 @@ S2.define('select2/data/tokenizer',[
       $container.find('.select2-search__field');
   };
 
-  Tokenizer.prototype.query = function (decorated, params, callback) {
+  Tokenizer.prototype.   = function (decorated, params, callback) {
     var self = this;
 
     function createAndSelect (data) {
@@ -3763,7 +3763,7 @@ S2.define('select2/data/minimumInputLength',[
     decorated.call(this, $e, options);
   }
 
-  MinimumInputLength.prototype.query = function (decorated, params, callback) {
+  MinimumInputLength.prototype.   = function (decorated, params, callback) {
     params.term = params.term || '';
 
     if (params.term.length < this.minimumInputLength) {
@@ -3794,7 +3794,7 @@ S2.define('select2/data/maximumInputLength',[
     decorated.call(this, $e, options);
   }
 
-  MaximumInputLength.prototype.query = function (decorated, params, callback) {
+  MaximumInputLength.prototype.   = function (decorated, params, callback) {
     params.term = params.term || '';
 
     if (this.maximumInputLength > 0 &&
@@ -3826,7 +3826,7 @@ S2.define('select2/data/maximumSelectionLength',[
     decorated.call(this, $e, options);
   }
 
-  MaximumSelectionLength.prototype.query =
+  MaximumSelectionLength.prototype.   =
     function (decorated, params, callback) {
       var self = this;
 
@@ -3850,7 +3850,7 @@ S2.define('select2/data/maximumSelectionLength',[
 });
 
 S2.define('select2/dropdown',[
-  'jquery',
+  'j  ',
   './utils'
 ], function ($, Utils) {
   function Dropdown ($element, options) {
@@ -3893,7 +3893,7 @@ S2.define('select2/dropdown',[
 });
 
 S2.define('select2/dropdown/search',[
-  'jquery',
+  'j  ',
   '../utils'
 ], function ($, Utils) {
   function Search () { }
@@ -3963,7 +3963,7 @@ S2.define('select2/dropdown/search',[
     });
 
     container.on('results:all', function (params) {
-      if (params.query.term == null || params.query.term === '') {
+      if (params.  .term == null || params.  .term === '') {
         var showSearch = self.showSearch(params);
 
         if (showSearch) {
@@ -3979,7 +3979,7 @@ S2.define('select2/dropdown/search',[
     if (!this._keyUpPrevented) {
       var input = this.$search.val();
 
-      this.trigger('query', {
+      this.trigger('  ', {
         term: input
       });
     }
@@ -4038,7 +4038,7 @@ S2.define('select2/dropdown/hidePlaceholder',[
 });
 
 S2.define('select2/dropdown/infiniteScroll',[
-  'jquery'
+  'j  '
 ], function ($) {
   function InfiniteScroll (decorated, $element, options, dataAdapter) {
     this.lastParams = {};
@@ -4065,12 +4065,12 @@ S2.define('select2/dropdown/infiniteScroll',[
 
     decorated.call(this, container, $container);
 
-    container.on('query', function (params) {
+    container.on('  ', function (params) {
       self.lastParams = params;
       self.loading = true;
     });
 
-    container.on('query:append', function (params) {
+    container.on('  :append', function (params) {
       self.lastParams = params;
       self.loading = true;
     });
@@ -4103,7 +4103,7 @@ S2.define('select2/dropdown/infiniteScroll',[
 
     params.page++;
 
-    this.trigger('query:append', params);
+    this.trigger('  :append', params);
   };
 
   InfiniteScroll.prototype.showLoadingMore = function (_, data) {
@@ -4128,7 +4128,7 @@ S2.define('select2/dropdown/infiniteScroll',[
 });
 
 S2.define('select2/dropdown/attachBody',[
-  'jquery',
+  'j  ',
   '../utils'
 ], function ($, Utils) {
   function AttachBody (decorated, $element, options) {
@@ -4522,7 +4522,7 @@ S2.define('select2/i18n/en',[],function () {
   };
 });
 S2.define('select2/defaults',[
-  'jquery',
+  'j  ',
   'require',
 
   './results',
@@ -4621,12 +4621,12 @@ S2.define('select2/defaults',[
         );
       }
 
-      if (options.query != null) {
-        var Query = require(options.amdBase + 'compat/query');
+      if (options.   != null) {
+        var    = require(options.amdBase + 'compat/  ');
 
         options.dataAdapter = Utils.Decorate(
           options.dataAdapter,
-          Query
+            
         );
       }
 
@@ -4920,7 +4920,7 @@ S2.define('select2/defaults',[
 
 S2.define('select2/options',[
   'require',
-  'jquery',
+  'j  ',
   './defaults',
   './utils'
 ], function (require, $, Defaults, Utils) {
@@ -5004,8 +5004,8 @@ S2.define('select2/options',[
     var dataset = {};
 
     // Prefer the element's `dataset` attribute if it exists
-    // jQuery 1.x does not correctly handle data attributes with multiple dashes
-    if ($.fn.jquery && $.fn.jquery.substr(0, 2) == '1.' && $e[0].dataset) {
+    // j   1.x does not correctly handle data attributes with multiple dashes
+    if ($.fn.j   && $.fn.j  .substr(0, 2) == '1.' && $e[0].dataset) {
       dataset = $.extend(true, {}, $e[0].dataset, $e.data());
     } else {
       dataset = $e.data();
@@ -5042,7 +5042,7 @@ S2.define('select2/options',[
 });
 
 S2.define('select2/core',[
-  'jquery',
+  'j  ',
   './options',
   './utils',
   './keys'
@@ -5337,24 +5337,24 @@ S2.define('select2/core',[
       self.$container.removeClass('select2-container--focus');
     });
 
-    this.on('query', function (params) {
+    this.on('  ', function (params) {
       if (!self.isOpen()) {
         self.trigger('open', {});
       }
 
-      this.dataAdapter.query(params, function (data) {
+      this.dataAdapter.  (params, function (data) {
         self.trigger('results:all', {
           data: data,
-          query: params
+            : params
         });
       });
     });
 
-    this.on('query:append', function (params) {
-      this.dataAdapter.query(params, function (data) {
+    this.on('  :append', function (params) {
+      this.dataAdapter.  (params, function (data) {
         self.trigger('results:append', {
           data: data,
-          query: params
+            : params
         });
       });
     });
@@ -5504,7 +5504,7 @@ S2.define('select2/core',[
       return;
     }
 
-    this.trigger('query', {});
+    this.trigger('  ', {});
   };
 
   Select2.prototype.close = function () {
@@ -5655,7 +5655,7 @@ S2.define('select2/core',[
 });
 
 S2.define('select2/compat/utils',[
-  'jquery'
+  'j  '
 ], function ($) {
   function syncCssClasses ($dest, $src, adapter) {
     var classes, replacements = [], adapted;
@@ -5699,7 +5699,7 @@ S2.define('select2/compat/utils',[
 });
 
 S2.define('select2/compat/containerCss',[
-  'jquery',
+  'j  ',
   './utils'
 ], function ($, CompatUtils) {
   // No-op CSS adapter that discards all classes by default
@@ -5756,7 +5756,7 @@ S2.define('select2/compat/containerCss',[
 });
 
 S2.define('select2/compat/dropdownCss',[
-  'jquery',
+  'j  ',
   './utils'
 ], function ($, CompatUtils) {
   // No-op CSS adapter that discards all classes by default
@@ -5813,7 +5813,7 @@ S2.define('select2/compat/dropdownCss',[
 });
 
 S2.define('select2/compat/initSelection',[
-  'jquery'
+  'j  '
 ], function ($) {
   function InitSelection (decorated, $element, options) {
     if (options.get('debug') && window.console && console.warn) {
@@ -5856,7 +5856,7 @@ S2.define('select2/compat/initSelection',[
 });
 
 S2.define('select2/compat/inputData',[
-  'jquery'
+  'j  '
 ], function ($) {
   function InputData (decorated, $element, options) {
     this._currentData = [];
@@ -5954,7 +5954,7 @@ S2.define('select2/compat/inputData',[
     });
   };
 
-  InputData.prototype.query = function (_, params, callback) {
+  InputData.prototype.   = function (_, params, callback) {
     var results = [];
 
     for (var d = 0; d < this._currentData.length; d++) {
@@ -5984,7 +5984,7 @@ S2.define('select2/compat/inputData',[
 });
 
 S2.define('select2/compat/matcher',[
-  'jquery'
+  'j  '
 ], function ($) {
   function oldMatcher (matcher) {
     function wrappedMatcher (params, data) {
@@ -6026,15 +6026,15 @@ S2.define('select2/compat/matcher',[
   return oldMatcher;
 });
 
-S2.define('select2/compat/query',[
+S2.define('select2/compat/  ',[
 
 ], function () {
-  function Query (decorated, $element, options) {
+  function    (decorated, $element, options) {
     if (options.get('debug') && window.console && console.warn) {
       console.warn(
-        'Select2: The `query` option has been deprecated in favor of a ' +
-        'custom data adapter that overrides the `query` method. Support ' +
-        'will be removed for the `query` option in future versions of ' +
+        'Select2: The `  ` option has been deprecated in favor of a ' +
+        'custom data adapter that overrides the `  ` method. Support ' +
+        'will be removed for the `  ` option in future versions of ' +
         'Select2.'
       );
     }
@@ -6042,15 +6042,15 @@ S2.define('select2/compat/query',[
     decorated.call(this, $element, options);
   }
 
-  Query.prototype.query = function (_, params, callback) {
+    .prototype.   = function (_, params, callback) {
     params.callback = callback;
 
-    var query = this.options.get('query');
+    var    = this.options.get('  ');
 
-    query.call(null, params);
+      .call(null, params);
   };
 
-  return Query;
+  return   ;
 });
 
 S2.define('select2/dropdown/attachContainer',[
@@ -6150,23 +6150,23 @@ S2.define('select2/selection/stopPropagation',[
 });
 
 /*!
- * jQuery Mousewheel 3.1.13
+ * j   Mousewheel 3.1.13
  *
- * Copyright jQuery Foundation and other contributors
+ * Copyright j   Foundation and other contributors
  * Released under the MIT license
- * http://jquery.org/license
+ * http://j  .org/license
  */
 
 (function (factory) {
     if ( typeof S2.define === 'function' && S2.define.amd ) {
         // AMD. Register as an anonymous module.
-        S2.define('jquery-mousewheel',['jquery'], factory);
+        S2.define('j  -mousewheel',['j  '], factory);
     } else if (typeof exports === 'object') {
         // Node/CommonJS style for Browserify
         module.exports = factory;
     } else {
         // Browser globals
-        factory(jQuery);
+        factory(j  );
     }
 }(function ($) {
 
@@ -6371,9 +6371,9 @@ S2.define('select2/selection/stopPropagation',[
 
 }));
 
-S2.define('jquery.select2',[
-  'jquery',
-  'jquery-mousewheel',
+S2.define('j  .select2',[
+  'j  ',
+  'j  -mousewheel',
 
   './select2/core',
   './select2/defaults'
@@ -6436,14 +6436,14 @@ S2.define('jquery.select2',[
   };
 }());
 
-  // Autoload the jQuery bindings
+  // Autoload the j   bindings
   // We know that all of the modules exist above this, so we're safe
-  var select2 = S2.require('jquery.select2');
+  var select2 = S2.require('j  .select2');
 
-  // Hold the AMD module references on the jQuery function that was just loaded
+  // Hold the AMD module references on the j   function that was just loaded
   // This allows Select2 to use the internal loader outside of this file, such
   // as in the language files.
-  jQuery.fn.select2.amd = S2;
+  j  .fn.select2.amd = S2;
 
   // Return the Select2 instance for anyone who is importing it.
   return select2;
