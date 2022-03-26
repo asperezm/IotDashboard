@@ -35,11 +35,3 @@ class user:
     def device_values(self, fieldname, deviceID):
         output=["output"]
         return output[0]
-
-#testing side for the class
-# test = user("hellboy", "hello world")
-# test.get_details()
-# print(test.get_devices())
-# print(test.dev_info("ARMS1112"))
-# print(test.field_values('Rosegarden'))
-# print(test.device_values("Rosegarden", "ARMS12012"))

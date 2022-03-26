@@ -1,8 +1,8 @@
 import unittest
 import requests
 
-HOST_LOGIN='http://0.0.0.0:80/'
-HOST_OVERVIEW='http://0.0.0.0/overview/dsf'
+HOST_LOGIN='http://127.0.0.1:5000/'
+HOST_OVERVIEW='http://127.0.0.1:5000/overview/dsf'
 
 class TestEndpoints(unittest.TestCase):
 

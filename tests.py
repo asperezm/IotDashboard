@@ -1,5 +1,5 @@
 import pytest
-import Arms
+import app
 
 def test_temperature():
-    assert Arms.get_temperature() == "38729"
+    assert app.get_temperature() == "38729"
