@@ -23,7 +23,7 @@ class user:
         dummy = ["dummy"]
         return dummy
 
-
+    #test
     def dev_info(self, deviceID):
         output=["output"]
         return output[0]
