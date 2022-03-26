@@ -9,7 +9,6 @@ app = Flask(__name__)
 logged_in = {}
 api_loggers = {}
 
-#test api key aGFja2luZ2lzYWNyaW1lYXNmc2FmZnNhZnNhZmZzYQ==
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
