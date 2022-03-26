@@ -4,6 +4,7 @@ import person
 from random import choice
 from datetime import datetime
 import os, binascii
+import pytest
 
 app = Flask(__name__)
 
@@ -300,3 +301,5 @@ def decode(base64_message):
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port = "80", debug=True)
+
+
