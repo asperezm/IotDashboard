@@ -11,7 +11,6 @@ api_loggers = {}
 
 #test api key aGFja2luZ2lzYWNyaW1lYXNmc2FmZnNhZnNhZmZzYQ==
 
-
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     error = ""
@@ -68,12 +67,15 @@ def logout(username, session):
 
 @app.route("/api/<string:apikey>/temperature", methods=["GET", "POST"])
 def get_temperature():
-    return random.randint(15, 55)
+    randData = random.randint(15, 55)
+    time = datetime.now()
+    time = time.strftime("%H:%M:%S")
+    response = [time, randData]
+    return jsonify(response)
 
 @app.route("/api/<string:apikey>/moisture", methods=["GET", "POST"])
 def get_moisture(apikey):
-    
-    randData = choice(randlist)
+    randData = random.randint(0, 100)
     time = datetime.now()
     time = time.strftime("%H:%M:%S")
     response = [time, randData]
@@ -81,8 +83,7 @@ def get_moisture(apikey):
 
 @app.route("/api/<string:apikey>/humidity", methods=["GET", "POST"])
 def get_humidity(apikey):
-    
-    randData = choice(randlist)
+    randData = random.randint(0, 100)
     time = datetime.now()
     time = time.strftime("%H:%M:%S")
     response = [time, randData]
@@ -90,8 +91,7 @@ def get_humidity(apikey):
 
 @app.route("/api/<string:apikey>/light", methods=["GET", "POST"])
 def get_light(apikey):
-    
-    randData = choice(randlist)
+    randData = random.randint(300, 1000)
     time = datetime.now()
     time = time.strftime("%H:%M:%S")
     response = [time, randData]
