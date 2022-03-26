@@ -70,32 +70,40 @@ def get_temperature():
     randData = random.randint(15, 55)
     time = datetime.now()
     time = time.strftime("%H:%M:%S")
-    response = [time, randData]
-    return jsonify(response)
+    response = {}
+    response['time'] = time
+    response['temperature'] = randData
+    return response
 
 @app.route("/api/<string:apikey>/moisture", methods=["GET", "POST"])
-def get_moisture(apikey):
+def get_moisture():
     randData = random.randint(0, 100)
     time = datetime.now()
     time = time.strftime("%H:%M:%S")
-    response = [time, randData]
-    return jsonify(response)
+    response = {}
+    response['time'] = time
+    response['moisture'] = randData
+    return response
 
 @app.route("/api/<string:apikey>/humidity", methods=["GET", "POST"])
-def get_humidity(apikey):
+def get_humidity():
     randData = random.randint(0, 100)
     time = datetime.now()
     time = time.strftime("%H:%M:%S")
-    response = [time, randData]
-    return jsonify(response)
+    response = {}
+    response['time'] = time
+    response['humidity'] = randData
+    return response
 
 @app.route("/api/<string:apikey>/light", methods=["GET", "POST"])
-def get_light(apikey):
+def get_light():
     randData = random.randint(300, 1000)
     time = datetime.now()
     time = time.strftime("%H:%M:%S")
-    response = [time, randData]
-    return jsonify(response)
+    response = {}
+    response['time'] = time
+    response['light'] = randData
+    return response
 
 
 if __name__ == "__main__":
