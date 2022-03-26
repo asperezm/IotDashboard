@@ -1,8 +1,8 @@
 import unittest
 import requests
 
-HOST_LOGIN='http://127.0.0.1:5000/'
-HOST_OVERVIEW='http://127.0.0.1:5000/overview/dsf'
+HOST_LOGIN='http://iotdashboard-env.eba-4pz7cmak.us-east-2.elasticbeanstalk.com/'
+HOST_OVERVIEW='http://iotdashboard-env.eba-4pz7cmak.us-east-2.elasticbeanstalk.com/'
 
 class TestEndpoints(unittest.TestCase):
 
