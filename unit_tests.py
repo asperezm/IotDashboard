@@ -1,4 +1,3 @@
-import pytest
 import Arms
 
 def test_correct_temperature():
