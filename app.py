@@ -24,7 +24,6 @@ def login():
        
     return render_template('Login.htm', error=error)
     
-#this link is for the main dashboard of the website
 @app.route('/', methods=['GET', 'POST'])
 def home():
     return render_template('home.htm', title='HOME - Landing Page')
